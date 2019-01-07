@@ -20,20 +20,20 @@ public class P253_CommonNodesInLists {
      * @return
      */
     public static ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
-        Set<ListNode> hashSet = new HashSet();
-        ListNode current1 = pHead1;
-        ListNode current2 = pHead2;
-        while (current1 != null) {
-            hashSet.add(current1);
-            current1 = current1.next;
+        if (pHead1 == null || pHead2 == null) {
+            return null;
         }
-        while (current2 != null) {
-            if (!hashSet.add(current2)) {
-                return current2;
+        HashSet hs = new HashSet();
+        while (pHead1 != null) {
+            hs.add(pHead1);
+            pHead1 = pHead1.next;
+        }
+        while (pHead2 != null) {
+            if (!hs.add(pHead2)) {
+                return pHead2;
             }
-            current2 = current2.next;
+            pHead2 = pHead2.next;
         }
         return null;
-
     }
 }
