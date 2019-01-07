@@ -44,20 +44,6 @@ public class P79_Sort {
         quickSort(arr, i, tail);
     }
 
-    public static int binarySearchRecursion(int[] array, int start, int end, int key) {
-        if (start > end) {
-            return -1;
-        }
-        int mid = (end - start) / 2 + start;
-        if (key > array[mid]) {
-            return binarySearch(array, mid + 1, end, key);
-        } else if (key < array[mid]) {
-            return binarySearch(array, start, mid - 1, key);
-        } else {
-            return mid;
-        }
-    }
-
     public static int binarySearch(int[] array, int start, int end, int key) {
         if (array == null || key < array[start] || key > array[end]) {
             return -1;
