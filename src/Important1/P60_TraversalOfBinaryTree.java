@@ -44,8 +44,8 @@ public class P60_TraversalOfBinaryTree {
         if (node == null) {
             return list;
         }
-        list.addAll(inorderRecursively(node.left));
-        list.addAll(inorderRecursively(node.right));
+        list.addAll(postorderRecursively(node.left));
+        list.addAll(postorderRecursively(node.right));
         list.add(node.val);
         return list;
     }

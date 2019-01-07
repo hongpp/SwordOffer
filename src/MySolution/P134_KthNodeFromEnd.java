@@ -1,0 +1,37 @@
+package MySolution;
+
+import enity.ListNode;
+
+/**
+ * 链表中倒数第k个结点
+ * <p>
+ * 输入一个链表，输出该链表中倒数第k个结点。
+ */
+public class P134_KthNodeFromEnd {
+    /**
+     * 已过牛客
+     * https://www.nowcoder.com/practice/529d3ae5a407492994ad2a246518148a?tpId=13&tqId=11167&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
+     *
+     * @param head
+     * @param k
+     * @return
+     */
+    public static ListNode FindKthToTail(ListNode head, int k) {
+        if (head == null || k <= 0) {
+            return null;
+        }
+        ListNode pre = head;
+        ListNode post = head;
+        for (int i = 0; i < k - 1; i++) {
+            post = post.next;
+            if (post == null) {
+                return null;
+            }
+        }
+        while (post.next != null) {
+            post = post.next;
+            pre = pre.next;
+        }
+        return pre;
+    }
+}

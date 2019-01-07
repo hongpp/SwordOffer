@@ -11,7 +11,14 @@ package Important2;
 
 public class P51_ReplaceSpaces {
 
-
+    /**
+     * 已过牛客
+     * <p>
+     * https://www.nowcoder.com/practice/4060ac7e3e404ad1a894ef3e17650423?tpId=13&tqId=11155&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
+     *
+     * @param data
+     * @param length
+     */
     public static void replaceBlank(char[] data, int length) {
         System.out.println(new String(data));
         int oldLength = length;
