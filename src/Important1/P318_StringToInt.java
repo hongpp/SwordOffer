@@ -16,28 +16,27 @@ public class P318_StringToInt {
      * @return
      */
     public static int StrToInt(String str) {
-        if (str == null || str.isEmpty()) {
+        if (str == null || str.length() == 0) {
             return 0;
         }
-        int result = 0;
         int symbol = 1;
         int index = 0;
+        int sum = 0;
         char[] chars = str.toCharArray();
         if (chars[0] == '-') {
+            index = 1;
             symbol = -1;
+        } else if (chars[0] == '+') {
             index = 1;
-        }
-        if (chars[0] == '+') {
             symbol = 1;
-            index = 1;
         }
         for (int i = index; i < chars.length; i++) {
             if (chars[i] < 48 || chars[i] > 57) {
                 return 0;
             }
-            result = result * 10 + (chars[i] - 48);
+            sum = sum * 10 + (chars[i] - 48);
         }
-        return symbol * result;
+        return sum * symbol;
     }
 
     public static void main(String[] args) {
