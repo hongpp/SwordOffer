@@ -19,6 +19,9 @@ public class P218_GreatestSumOfSubarrays {
      * @return
      */
     public static int FindGreatestSumOfSubArray(int[] array) {
+        if (array == null) {
+            return 0;
+        }
         int max_sub_whole = array[0];
         int max_sub_part = array[0];
         for (int i = 1; i < array.length; i++) {
