@@ -18,33 +18,10 @@ public class P271_TreeDepth {
         if (root == null) {
             return 0;
         }
-        return Math.max(TreeDepth(root.left), TreeDepth(root.right)) + 1;
+        int left = TreeDepth(root.left);
+        int right = TreeDepth(root.right);
+        return Math.max(left, right) + 1;
     }
-
-    public static int TreeDepthLeft(TreeNode root) {
-        if (root == null) {
-            System.out.println("left end");
-            return 0;
-        }
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
-        int depth = 0;
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                TreeNode treeNode = queue.poll();
-                if (treeNode.left != null) {
-                    queue.offer(treeNode.left);
-                }
-                if (treeNode.right != null) {
-                    queue.offer(treeNode.right);
-                }
-            }
-            depth++;
-        }
-        return depth;
-    }
-
 
     public static void main(String[] args) {
         TreeNode<Integer> root = new TreeNode<>(1);
