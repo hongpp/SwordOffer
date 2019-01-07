@@ -27,15 +27,4 @@ public class P100_NumberOf1InBinary {
         }
         return count;
     }
-
-    public int NumberOf1_(int n) {
-        char[] chars = Integer.toBinaryString(n).toCharArray();
-        int count = 0;
-        for (int i = 0; i < chars.length; i++) {
-            if (chars[i] == '1') {
-                count++;
-            }
-        }
-        return count;
-    }
 }
