@@ -7,6 +7,14 @@ package Important1;
  * 要求不能使用字符串转换整数的库函数。 数值为0或者字符串不是一个合法的数值则返回0。
  */
 public class P318_StringToInt {
+    /**
+     * 已过牛客
+     * <p>
+     * https://www.nowcoder.com/practice/1277c681251b4372bdef344468e4f26e?tpId=13&tqId=11202&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
+     *
+     * @param str
+     * @return
+     */
     public static int StrToInt(String str) {
         if (str == null || str.isEmpty()) {
             return 0;

@@ -16,7 +16,16 @@ import java.util.Set;
  * 一个长度为n的数组，值的范围在0~n-1内，有一个或多个数字重复，求其中任意一个
  */
 public class P39_DuplicationInArray {
-
+    /**
+     * 已过牛客
+     * <p>
+     * https://www.nowcoder.com/practice/623a5ac0ea5b4e5f95552655361ae0a8?tpId=13&tqId=11203&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
+     *
+     * @param numbers
+     * @param length
+     * @param duplication
+     * @return
+     */
     public static boolean duplicate(int numbers[], int length, int[] duplication) {
         boolean[] flag = new boolean[length];
         for (int i = 0; i < length; i++) {

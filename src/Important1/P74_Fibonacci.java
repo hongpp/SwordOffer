@@ -19,12 +19,19 @@ package Important1;
  */
 public class P74_Fibonacci {
     public static void main(String[] args) {
-        System.out.println(fibonacci(13));
-        System.out.println(fibonacci1(13));
+        System.out.println(Fibonacci(13));
+        System.out.println(Fibonacci1(13));
 
     }
 
-    public static int fibonacci(int n) {
+    /**
+     * 已过牛客
+     *
+     * https://www.nowcoder.com/practice/c6c7742f5ba7442aada113136ddea0c3?tpId=13&tqId=11160&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
+     * @param n
+     * @return
+     */
+    public static int Fibonacci(int n) {
         if (n < 0) {
             return 0;
         }
@@ -42,14 +49,14 @@ public class P74_Fibonacci {
         return result;
     }
 
-    public static int fibonacci1(int n) {
+    public static int Fibonacci1(int n) {
         if (n < 0) {
             return 0;
         }
         if (n == 1) {
             return 1;
         }
-        return fibonacci1(n - 2) + fibonacci1(n - 1);
+        return Fibonacci1(n - 2) + Fibonacci1(n - 1);
     }
 
 }

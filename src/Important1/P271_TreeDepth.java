@@ -6,9 +6,14 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class P271_TreeDepth {
-    static int leftIndex = 0;
-    static int rightiIndex = 0;
-
+    /**
+     * 已过牛客
+     * <p>
+     * https://www.nowcoder.com/practice/435fb86331474282a3499955f0a41e8b?tpId=13&tqId=11191&tPage=1&rp=1&ru=/ta/coding-interviews&qru=/ta/coding-interviews/question-ranking
+     *
+     * @param root
+     * @return
+     */
     public static int TreeDepth(TreeNode root) {
         if (root == null) {
             return 0;
