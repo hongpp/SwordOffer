@@ -22,7 +22,7 @@ public class P142_ReverseList {
         }
         ListNode pre = null;
         ListNode cur = head;
-        ListNode post = head.next;
+        ListNode post = cur.next;
         while (true) {
             cur.next = pre;
             pre = cur;
