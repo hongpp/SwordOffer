@@ -27,13 +27,16 @@ public class P39_DuplicationInArray {
      * @return
      */
     public static boolean duplicate(int numbers[], int length, int[] duplication) {
-        boolean[] flag = new boolean[length];
+        if (numbers == null) {
+            return false;
+        }
+        boolean[] flags = new boolean[length];
         for (int i = 0; i < length; i++) {
-            if (flag[numbers[i]]) {
+            if (flags[numbers[i]]) {
                 duplication[0] = numbers[i];
                 return true;
             }
-            flag[numbers[i]] = true;
+            flags[numbers[i]] = true;
         }
         return false;
     }
@@ -42,9 +45,9 @@ public class P39_DuplicationInArray {
         if (numbers == null) {
             return false;
         }
-        Set<Integer> hashSet = new HashSet<>();
+        Set hs = new HashSet();
         for (int i = 0; i < numbers.length; i++) {
-            if (!hashSet.add(numbers[i])) {
+            if (!hs.add(numbers[i])) {
                 duplication[0] = numbers[i];
                 return true;
             }
