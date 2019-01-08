@@ -16,7 +16,7 @@ public class P318_StringToInt {
      * @return
      */
     public static int StrToInt(String str) {
-        if (str == null || str.length() == 0) {
+        if (str == null || str.isEmpty()) {
             return 0;
         }
         int symbol = 1;
@@ -24,11 +24,11 @@ public class P318_StringToInt {
         int sum = 0;
         char[] chars = str.toCharArray();
         if (chars[0] == '-') {
-            index = 1;
             symbol = -1;
-        } else if (chars[0] == '+') {
             index = 1;
+        } else if (chars[0] == '+') {
             symbol = 1;
+            index = 1;
         }
         for (int i = index; i < chars.length; i++) {
             if (chars[i] < 48 || chars[i] > 57) {
@@ -36,7 +36,7 @@ public class P318_StringToInt {
             }
             sum = sum * 10 + (chars[i] - 48);
         }
-        return sum * symbol;
+        return symbol * sum;
     }
 
     public static void main(String[] args) {
