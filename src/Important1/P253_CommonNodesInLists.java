@@ -23,13 +23,13 @@ public class P253_CommonNodesInLists {
         if (pHead1 == null || pHead2 == null) {
             return null;
         }
-        HashSet hs = new HashSet();
+        HashSet hashSet = new HashSet();
         while (pHead1 != null) {
-            hs.add(pHead1);
+            hashSet.add(pHead1);
             pHead1 = pHead1.next;
         }
         while (pHead2 != null) {
-            if (!hs.add(pHead2)) {
+            if (!hashSet.add(pHead2)) {
                 return pHead2;
             }
             pHead2 = pHead2.next;
