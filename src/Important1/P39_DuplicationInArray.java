@@ -45,9 +45,9 @@ public class P39_DuplicationInArray {
         if (numbers == null) {
             return false;
         }
-        Set hs = new HashSet();
+        HashSet hashSet = new HashSet();
         for (int i = 0; i < numbers.length; i++) {
-            if (!hs.add(numbers[i])) {
+            if (!hashSet.add(numbers[i])) {
                 duplication[0] = numbers[i];
                 return true;
             }
