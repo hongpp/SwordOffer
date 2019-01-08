@@ -46,18 +46,21 @@ public class P62_ConstructBinaryTree {
      */
     // 已知中序 先序
     public static TreeNode reConstructBinaryTree(int[] pre, int[] in) {
+        if (pre == null || in == null) {
+            return null;
+        }
         TreeNode root = reConstructBinaryTree(pre, 0, pre.length - 1, in, 0, in.length - 1);
         return root;
     }
 
 
     public static TreeNode reConstructBinaryTree(int[] pre, int startPre, int endPre, int[] in, int startIn, int endIn) {
-        if (startPre > endPre || startIn > endIn) {
+        if (pre == null || in == null || startPre > endPre || startIn > endIn) {
             return null;
         }
         TreeNode root = new TreeNode(pre[startPre]);
         for (int i = 0; i < in.length; i++) {
-            if (in[i] == (int) root.val) {
+            if ((int) root.val == in[i]) {
                 root.left = reConstructBinaryTree(pre, startPre + 1, startPre + (i - startIn), in, startIn, i - 1);
                 root.right = reConstructBinaryTree(pre, startPre + (i - startIn) + 1, endPre, in, i + 1, endIn);
             }
