@@ -39,9 +39,9 @@ public class P74_Fibonacci {
         if (n == 1) {
             return 1;
         }
-        int f_n_2 = 0;// f(n-2)
-        int f_n_1 = 1;// f(n-1)
-        int f_n = 0;// f(n)
+        int f_n_2 = 0;
+        int f_n_1 = 1;
+        int f_n = 0;
         for (int i = 2; i <= n; i++) {
             f_n = f_n_2 + f_n_1;
             f_n_2 = f_n_1;
