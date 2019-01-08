@@ -17,34 +17,34 @@ class Singleton1 {
 
     }
 
-    private static class Holder {
-        private static final Singleton1 INSTANCE = new Singleton1();
-    }
+    private static Singleton1 INSTANCE;
 
     public static Singleton1 getInstance() {
-        return Holder.INSTANCE;
+        if (INSTANCE == null) {
+            synchronized (Singleton1.class) {
+                if (INSTANCE == null) {
+                    return new Singleton1();
+                }
+            }
+        }
+        return INSTANCE;
     }
-
 
 }
 
 class Singleton2 {
-    private static Singleton2 instance = null;
-
     private Singleton2() {
 
     }
 
-    public static Singleton2 getInstance() {
-        if (instance == null) {
-            synchronized (Singleton2.class) {
-                if (instance == null) {
-                    instance = new Singleton2();
-                }
-            }
-        }
-        return instance;
+    private static class Holder {
+        private static final Singleton2 INSTANCE = new Singleton2();
     }
+
+    public static Singleton2 getInstance() {
+        return Holder.INSTANCE;
+    }
+
 }
 
 enum Singleton3 {

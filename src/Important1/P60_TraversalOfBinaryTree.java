@@ -1,5 +1,6 @@
 package Important1;
 
+import enity.ListNode;
 import enity.TreeNode;
 
 import java.util.ArrayList;
@@ -35,7 +36,6 @@ public class P60_TraversalOfBinaryTree {
         list.add(node.val);
         list.addAll(inorderRecursively(node.right));
         return list;
-
     }
 
     // 后序遍历递归版
