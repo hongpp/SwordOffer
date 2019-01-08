@@ -22,12 +22,12 @@ public class P79_Sort {
         if (head >= tail || arr == null || arr.length <= 1) {
             return;
         }
-        int i = head, j = tail, pivot = arr[(head + tail) / 2];
+        int i = head, j = tail, benchMark = arr[(head + tail) / 2];
         while (i <= j) {
-            while (arr[i] < pivot) {
+            while (arr[i] < benchMark) {
                 i++;
             }
-            while (arr[j] > pivot) {
+            while (arr[j] > benchMark) {
                 j--;
             }
             if (i < j) {
@@ -49,12 +49,12 @@ public class P79_Sort {
             return -1;
         }
         while (start <= end) {
-            int mid = (end - start) / 2 + start;
-            if (key > array[mid]) {
-                start = mid + 1;
-            } else if (key < array[mid]) {
+            int mid = (start + end) / 2;
+            if (key < array[mid]) {
                 end = mid - 1;
-            } else {
+            } else if (key > array[mid]) {
+                start = mid + 1;
+            } else if (key == array[mid]) {
                 return mid;
             }
         }
