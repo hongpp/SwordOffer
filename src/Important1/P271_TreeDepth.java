@@ -21,6 +21,7 @@ public class P271_TreeDepth {
         TreeDepth(root);
         return isBalanced;
     }
+
     /**
      * 已过牛客
      * <p>
