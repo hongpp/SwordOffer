@@ -24,11 +24,11 @@ public class P318_StringToInt {
         int sum = 0;
         char[] chars = str.toCharArray();
         if (chars[0] == '-') {
+            index = 1;
             symbol = -1;
-            index = 1;
         } else if (chars[0] == '+') {
-            symbol = 1;
             index = 1;
+            symbol = 1;
         }
         for (int i = index; i < chars.length; i++) {
             if (chars[i] < 48 || chars[i] > 57) {
