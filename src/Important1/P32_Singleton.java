@@ -23,13 +23,12 @@ class Singleton1 {
         if (INSTANCE == null) {
             synchronized (Singleton1.class) {
                 if (INSTANCE == null) {
-                    return new Singleton1();
+                    INSTANCE = new Singleton1();
                 }
             }
         }
         return INSTANCE;
     }
-
 }
 
 class Singleton2 {
@@ -44,7 +43,6 @@ class Singleton2 {
     public static Singleton2 getInstance() {
         return Holder.INSTANCE;
     }
-
 }
 
 enum Singleton3 {
