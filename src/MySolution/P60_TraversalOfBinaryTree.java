@@ -1,5 +1,6 @@
 package MySolution;
 
+import enity.ListNode;
 import enity.TreeNode;
 
 import java.util.ArrayList;
@@ -10,41 +11,42 @@ import java.util.Queue;
 /**
  * 二叉树的遍历
  * <p>
- * 二叉树是一种非常常用的数据结构
+ * 二叉树是一种非常常用的数据结构，也是面试的热门词。而二叉树最常见的考点莫过于遍历，
  */
-
 public class P60_TraversalOfBinaryTree {
     // 前序遍历递归版
     public static List<Integer> preorderRecursively(TreeNode<Integer> node) {
         List<Integer> list = new ArrayList<>();
-        if (node != null) {
-            list.add(node.val);
-            list.addAll(preorderRecursively(node.left));
-            list.addAll(preorderRecursively(node.right));
+        if (node == null) {
+            return list;
         }
+        list.add(node.val);
+        list.addAll(preorderRecursively(node.left));
+        list.addAll(preorderRecursively(node.right));
         return list;
     }
 
     // 中序遍历递归版
     public static List<Integer> inorderRecursively(TreeNode<Integer> node) {
         List<Integer> list = new ArrayList<>();
-        if (node != null) {
-            list.addAll(inorderRecursively(node.left));
-            list.add(node.val);
-            list.addAll(inorderRecursively(node.right));
+        if (node == null) {
+            return list;
         }
+        list.addAll(inorderRecursively(node.left));
+        list.add(node.val);
+        list.addAll(inorderRecursively(node.right));
         return list;
-
     }
 
     // 后序遍历递归版
     public static List<Integer> postorderRecursively(TreeNode<Integer> node) {
         List<Integer> list = new ArrayList<>();
-        if (node != null) {
-            list.addAll(postorderRecursively(node.left));
-            list.addAll(postorderRecursively(node.right));
-            list.add(node.val);
+        if (node == null) {
+            return list;
         }
+        list.addAll(postorderRecursively(node.left));
+        list.addAll(postorderRecursively(node.right));
+        list.add(node.val);
         return list;
     }
 
@@ -55,15 +57,16 @@ public class P60_TraversalOfBinaryTree {
         if (node == null) {
             return list;
         }
-        Queue<TreeNode<Integer>> treeNodeQueue = new LinkedList<>();
-        treeNodeQueue.offer(node);
-        while (!treeNodeQueue.isEmpty()) {
-            TreeNode<Integer> treeNode = treeNodeQueue.poll();
-            list.add(treeNode.val);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(node);
+        while (!queue.isEmpty()) {
+            TreeNode treeNode = queue.poll();
+            list.add((Integer) treeNode.val);
             if (treeNode.left != null) {
-                treeNodeQueue.offer(treeNode.left);
-            } else if (treeNode.right != null) {
-                treeNodeQueue.offer(treeNode.right);
+                queue.offer(treeNode.left);
+            }
+            if (treeNode.right != null) {
+                queue.offer(treeNode.right);
             }
         }
         return list;

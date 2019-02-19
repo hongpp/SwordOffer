@@ -1,5 +1,6 @@
 package RightSolution;
 
+import enity.ListNode;
 import enity.TreeNode;
 
 import java.util.ArrayList;
@@ -35,7 +36,6 @@ public class P60_TraversalOfBinaryTree {
         list.add(node.val);
         list.addAll(inorderRecursively(node.right));
         return list;
-
     }
 
     // 后序遍历递归版
@@ -54,18 +54,19 @@ public class P60_TraversalOfBinaryTree {
     //层序遍历
     public static List<Integer> levelorder(TreeNode<Integer> node) {
         List<Integer> list = new ArrayList<>();
-        Queue<TreeNode<Integer>> treeNodeQueue = new LinkedList<>();
         if (node == null) {
             return list;
         }
-        treeNodeQueue.offer(node);
-        while (!treeNodeQueue.isEmpty()) {
-            TreeNode<Integer> tempNode = treeNodeQueue.poll();
-            list.add(tempNode.val);
-            if (tempNode.left != null) {
-                treeNodeQueue.offer(tempNode.left);
-            } else if (tempNode.right != null) {
-                treeNodeQueue.offer(tempNode.right);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(node);
+        while (!queue.isEmpty()) {
+            TreeNode treeNode = queue.poll();
+            list.add((Integer) treeNode.val);
+            if (treeNode.left != null) {
+                queue.offer(treeNode.left);
+            }
+            if (treeNode.right != null) {
+                queue.offer(treeNode.right);
             }
         }
         return list;

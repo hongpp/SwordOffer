@@ -64,7 +64,8 @@ public class P60_TraversalOfBinaryTree {
             list.add((Integer) treeNode.val);
             if (treeNode.left != null) {
                 queue.offer(treeNode.left);
-            } else if (treeNode.right != null) {
+            }
+            if (treeNode.right != null) {
                 queue.offer(treeNode.right);
             }
         }

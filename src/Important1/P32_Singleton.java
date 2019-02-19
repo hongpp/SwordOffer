@@ -12,18 +12,18 @@ public class P32_Singleton {
     }
 }
 
-class Singleton1 {
-    private Singleton1() {
+class Singleton_DLC {
+    private static volatile Singleton_DLC INSTANCE;
+
+    private Singleton_DLC() {
 
     }
 
-    private static Singleton1 INSTANCE;
-
-    public static Singleton1 getInstance() {
+    public static Singleton_DLC getInstance() {
         if (INSTANCE == null) {
-            synchronized (Singleton1.class) {
+            synchronized (Singleton_DLC.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new Singleton1();
+                    INSTANCE = new Singleton_DLC();
                 }
             }
         }
@@ -31,24 +31,17 @@ class Singleton1 {
     }
 }
 
-class Singleton2 {
-    private Singleton2() {
+class Singleton_Inner_Static {
+    private Singleton_Inner_Static() {
 
     }
 
     private static class Holder {
-        private static final Singleton2 INSTANCE = new Singleton2();
+        private static final Singleton_Inner_Static INSTANCE = new Singleton_Inner_Static();
     }
 
-    public static Singleton2 getInstance() {
+    public static Singleton_Inner_Static getInstance() {
         return Holder.INSTANCE;
     }
 }
 
-enum Singleton3 {
-    INSTANCE;
-
-    public void whatever() {
-
-    }
-}
