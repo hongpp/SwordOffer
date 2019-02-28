@@ -31,12 +31,12 @@ public class P318_StringToInt {
             symbol = 1;
         }
         for (int i = index; i < chars.length; i++) {
-            if (chars[i] < 48 || chars[i] > 57) {
+            if (chars[i] < '0' || chars[i] > '9') {
                 return 0;
             }
-            sum = sum * 10 + (chars[i] - 48);
+            sum = sum * 10 + (chars[i] - '0');
         }
-        return symbol * sum;
+        return sum * symbol;
     }
 
     public static void main(String[] args) {

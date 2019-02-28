@@ -23,7 +23,7 @@ public class P253_CommonNodesInLists {
         if (pHead1 == null || pHead2 == null) {
             return null;
         }
-        HashSet hashSet = new HashSet();
+        Set<ListNode> hashSet = new HashSet<>();
         while (pHead1 != null) {
             hashSet.add(pHead1);
             pHead1 = pHead1.next;

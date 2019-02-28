@@ -26,7 +26,7 @@ public class P218_GreatestSumOfSubarrays {
         int max_sub_whole = array[0];
         for (int i = 1; i < array.length; i++) {
             max_sub_part = Math.max(max_sub_part + array[i], array[i]);
-            max_sub_whole = Math.max(max_sub_part, max_sub_whole);
+            max_sub_whole = Math.max(max_sub_whole, max_sub_part);
         }
         return max_sub_whole;
     }

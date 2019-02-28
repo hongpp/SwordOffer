@@ -44,13 +44,13 @@ class MyQueue<T> {
     }
 
     public T pop() {
-        if (stack1.isEmpty() && stack2.isEmpty()) {
+        if (stack1.empty() && stack2.empty()) {
             throw new RuntimeException("queue is empty!");
         }
-        if (!stack2.isEmpty()) {
+        if (!stack2.empty()) {
             return stack2.pop();
         }
-        while (!stack1.isEmpty()) {
+        while (!stack1.empty()) {
             stack2.push(stack1.pop());
         }
         return stack2.pop();
