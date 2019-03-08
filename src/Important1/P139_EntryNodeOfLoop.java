@@ -22,14 +22,14 @@ public class P139_EntryNodeOfLoop {
         ListNode slow = pHead;
         ListNode fast = pHead;
         while (fast.next.next != null) {
-            fast = fast.next.next;
             slow = slow.next;
-            if (fast == slow) {
-                System.out.println("have a loop!");
+            fast = fast.next.next;
+            if (slow == fast) {
+                System.out.println("have a loop");
                 fast = pHead;
-                while (fast != slow) {
-                    fast = fast.next;
+                while (slow != fast) {
                     slow = slow.next;
+                    fast = fast.next;
                 }
                 return slow;
             }

@@ -20,18 +20,18 @@ public class P134_KthNodeFromEnd {
         if (head == null || k <= 0) {
             return null;
         }
-        ListNode pre = head;
-        ListNode post = head;
-        for (int i = 0; i < k - 1; i++) {
-            post = post.next;
+        ListNode left = head;
+        ListNode right = head;
+        for (int i = 1; i < k; i++) {
+            right = right.next;
         }
-        if (post == null) {
+        if (right == null) {
             return null;
         }
-        while (post.next != null) {
-            post = post.next;
-            pre = pre.next;
+        while (right.next != null) {
+            left = left.next;
+            right = right.next;
         }
-        return pre;
+        return left;
     }
 }

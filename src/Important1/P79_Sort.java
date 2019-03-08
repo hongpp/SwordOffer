@@ -27,8 +27,8 @@ public class P79_Sort {
      * @param array
      */
     public static int[] bubbleSort(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = i; j < array.length; j++) {
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = i + 1; j < array.length; j++) {
                 if (array[i] > array[j]) {
                     int temp = array[i];
                     array[i] = array[j];
@@ -48,17 +48,17 @@ public class P79_Sort {
      * @param end
      */
     public static int[] quickSort(int[] array, int start, int end) {
-        if (array == null || start >= end || array.length == 0) {
+        if (array == null || start >= end) {
             return array;
         }
         int i = start;
         int j = end;
-        int benchMark = (start + end) / 2;
+        int benchMark = array[(i + j) / 2];
         while (i <= j) {
-            while (array[i] < array[benchMark]) {
+            while (array[i] < benchMark) {
                 i++;
             }
-            while (array[j] > array[benchMark]) {
+            while (array[j] > benchMark) {
                 j--;
             }
             if (i < j) {
@@ -67,7 +67,7 @@ public class P79_Sort {
                 array[j] = temp;
                 i++;
                 j--;
-            } else {
+            } else if (i == j) {
                 i++;
             }
         }
@@ -78,6 +78,7 @@ public class P79_Sort {
 
     /**
      * 二分查找
+     *
      * @param array
      * @param start
      * @param end
@@ -90,11 +91,11 @@ public class P79_Sort {
         }
         while (start <= end) {
             int mid = (start + end) / 2;
-            if (key > array[mid]) {
+            if (array[mid] < key) {
                 start = mid + 1;
-            } else if (key < array[mid]) {
+            } else if (array[mid] > key) {
                 end = mid - 1;
-            } else {
+            } else if (array[mid] == key) {
                 return mid;
             }
         }

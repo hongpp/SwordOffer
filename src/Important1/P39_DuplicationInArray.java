@@ -1,7 +1,6 @@
 package Important1;
 
 import java.util.HashSet;
-import java.util.Set;
 
 /**
  * https://blog.csdn.net/zjkC050818/article/details/72800175
@@ -26,7 +25,7 @@ public class P39_DuplicationInArray {
      * @param duplication
      * @return
      */
-    public static boolean duplicate(int numbers[], int length, int[] duplication) {
+    public static boolean duplicate(int[] numbers, int length, int[] duplication) {
         if (numbers == null) {
             return false;
         }
@@ -41,7 +40,7 @@ public class P39_DuplicationInArray {
         return false;
     }
 
-    public static boolean duplicate1(int numbers[], int length, int[] duplication) {
+    public static boolean duplicate1(int[] numbers, int length, int[] duplication) {
         if (numbers == null) {
             return false;
         }

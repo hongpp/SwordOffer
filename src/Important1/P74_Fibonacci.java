@@ -33,7 +33,10 @@ public class P74_Fibonacci {
      * @return
      */
     public static int Fibonacci(int n) {
-        if (n <= 0) {
+        if (n < 0) {
+            throw new RuntimeException("n<0 is not allowed!");
+        }
+        if (n == 0) {
             return 0;
         }
         if (n == 1) {
@@ -41,7 +44,7 @@ public class P74_Fibonacci {
         }
         int f_n_2 = 0;
         int f_n_1 = 1;
-        int f_n = 0;
+        int f_n = f_n_2 + f_n_1;
         for (int i = 2; i <= n; i++) {
             f_n = f_n_2 + f_n_1;
             f_n_2 = f_n_1;
@@ -52,6 +55,9 @@ public class P74_Fibonacci {
 
     public static int Fibonacci1(int n) {
         if (n < 0) {
+            throw new RuntimeException("n<0 is not allowed!");
+        }
+        if (n == 0) {
             return 0;
         }
         if (n == 1) {
